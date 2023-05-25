@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payment.Application.Features.PaymentNotification.Queries
+namespace Payment.Application.Features.Queries
 {
     internal class GetPaymentNotificationByQuery
     {

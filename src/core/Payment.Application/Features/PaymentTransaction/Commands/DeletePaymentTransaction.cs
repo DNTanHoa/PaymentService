@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payment.Application.Features.PaymentTransaction.Commands
+namespace Payment.Application.Features.Commands
 {
     internal class DeletePaymentTransaction
     {

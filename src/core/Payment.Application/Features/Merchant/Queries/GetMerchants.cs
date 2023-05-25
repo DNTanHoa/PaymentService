@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payment.Application.Features.Merchant.Queries
+namespace Payment.Application.Features.Queries
 {
-    internal class GetMerchants
+    public class GetMerchants
     {
     }
 }
