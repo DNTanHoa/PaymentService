@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Payment.Application.Features.Commands
 {
-    internal class DeleteMerchant
+    public class DeleteMerchant
     {
+        public string? Id { get; set; } = string.Empty;
     }
 }

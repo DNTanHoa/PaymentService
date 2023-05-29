@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payment.Application.Features.Queries
+namespace Payment.Application.Base.Models
 {
-    public class GetMerchant
+    public class BaseError
     {
+
     }
 }

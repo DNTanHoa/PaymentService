@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Payment.Application.Features.Commands
 {
-    public class CreatePaymentNotification
+    public class SetActiveMerchant
     {
+        public string? Id { get; set; } = string.Empty;
+        public bool IsActive { get; set; }  
     }
 }

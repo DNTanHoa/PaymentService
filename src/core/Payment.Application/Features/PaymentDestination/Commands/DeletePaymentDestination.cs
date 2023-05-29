@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payment.Application.Features.Commands
 {
-    internal class DeletePaymentDestination
+    public class DeletePaymentDestination
     {
     }
 }

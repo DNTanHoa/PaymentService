@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payment.Application.Features.Queries
 {
-    internal class GetPaymentNotificationByQuery
+    public class GetPaymentNotificationByQuery
     {
     }
 }
