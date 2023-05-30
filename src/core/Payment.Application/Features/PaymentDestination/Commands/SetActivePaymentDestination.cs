@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Payment.Application.Features.Commands
 {
-    public class DeletePaymentDestination
+    public class SetActivePaymentDestination
     {
         public string Id { get; set; } = string.Empty;
+        public bool IsActive { get; set; }
     }
 }

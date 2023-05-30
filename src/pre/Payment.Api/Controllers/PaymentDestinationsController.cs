@@ -28,11 +28,11 @@ namespace Payment.Api.Controllers
         /// <param name="criteria"></param>
         /// <returns></returns>
         [HttpGet]
-        [ProducesResponseType(typeof(BaseResultWithData<List<MerchantDtos>>), 200)]
+        [ProducesResponseType(typeof(BaseResultWithData<List<PaymentDestinationDtos>>), 200)]
         [ProducesResponseType(400)]
         public IActionResult Get(string criteria)
         {
-            var response = new BaseResultWithData<List<MerchantDtos>>();
+            var response = new BaseResultWithData<List<PaymentDestinationDtos>>();
             return Ok(response);
         }
 
@@ -43,10 +43,10 @@ namespace Payment.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("with-paging")]
-        [ProducesResponseType(typeof(BaseResultWithData<BasePagingData<MerchantDtos>>), 200)]
+        [ProducesResponseType(typeof(BaseResultWithData<BasePagingData<PaymentDestinationDtos>>), 200)]
         public IActionResult GetPaging([FromQuery] BasePagingQuery query)
         {
-            var response = new BaseResultWithData<BasePagingData<MerchantDtos>>();
+            var response = new BaseResultWithData<BasePagingData<PaymentDestinationDtos>>();
             return Ok(response);
         }
 
@@ -57,11 +57,11 @@ namespace Payment.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
-        [ProducesResponseType(typeof(BaseResultWithData<MerchantDtos>), 200)]
+        [ProducesResponseType(typeof(BaseResultWithData<PaymentDestinationDtos>), 200)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public IActionResult GetOne([FromRoute] string id)
         {
-            var response = new BaseResultWithData<MerchantDtos>();
+            var response = new BaseResultWithData<PaymentDestinationDtos>();
             return Ok(response);
         }
 
@@ -72,21 +72,22 @@ namespace Payment.Api.Controllers
         /// <returns></returns>
         /// <remarks>
         /// 
-        ///     POST /merchants
+        ///     POST /payment-destinations
         ///     {
-        ///         "MerchantName" : "Website bán hàng A",
-        ///         "MerchantWebLink" : "https://webbanhang.com",
-        ///         "MerchantIpnUrl" : "https://webbanhang.com/ipn",
-        ///         "MerchantReturnUrl" : "https://webbanhang.com/payment/return"
+        ///         "DesName" : "Cổng thanh toán VNPay",
+        ///         "DesShortName" : "VNPay Pay",
+        ///         "DesParentId" : null,
+        ///         "DesLogo" : "https://sandbox.vnpayment.vn/apis/assets/images/partner_deeplink.png",
+        ///         "SortIndex" : 0
         ///     }
         /// 
         /// </remarks>
         [HttpPost]
-        [ProducesResponseType(typeof(BaseResultWithData<MerchantDtos>), 200)]
+        [ProducesResponseType(typeof(BaseResultWithData<PaymentDestinationDtos>), 200)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Create([FromBody] CreateMerchant request)
+        public IActionResult Create([FromBody] CreatePaymentDestination request)
         {
-            var response = new BaseResultWithData<MerchantDtos>();
+            var response = new BaseResultWithData<PaymentDestinationDtos>();
             return Ok(response);
         }
 
@@ -100,7 +101,7 @@ namespace Payment.Api.Controllers
         [Route("{id}")]
         [ProducesResponseType(typeof(BaseResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Update(string id, [FromBody] UpdateMerchant request)
+        public IActionResult Update(string id, [FromBody] UpdatePaymentDestination request)
         {
             var response = new BaseResult();
             return Ok(response);
@@ -116,7 +117,7 @@ namespace Payment.Api.Controllers
         [Route("{id}/set-active")]
         [ProducesResponseType(typeof(BaseResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult SetActive(string id, [FromBody] SetActiveMerchant request)
+        public IActionResult SetActive(string id, [FromBody] SetActivePaymentDestination request)
         {
             var response = new BaseResult();
             return Ok(response);

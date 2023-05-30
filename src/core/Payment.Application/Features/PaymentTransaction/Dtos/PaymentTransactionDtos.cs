@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payment.Domain.Entities
+namespace Payment.Application.Features.Dtos
 {
-    public class PaymentTransaction
+    public class PaymentTransactionDtos
     {
         public string Id { get; set; } = string.Empty;
         public string? TranMessage { get; set; } = string.Empty;
@@ -15,6 +15,8 @@ namespace Payment.Domain.Entities
         public decimal? TranAmount { get; set; }
         public DateTime? TranDate { get; set; }
         public string? PaymentId { get; set; } = string.Empty;
+        public string? MerchantName { get; set; } = string.Empty;
+        public string? DesName { get; set; } = string.Empty;
         public string? TranRefId { get; set; } = string.Empty;
     }
 }
