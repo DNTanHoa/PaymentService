@@ -22,7 +22,7 @@ namespace Payment.Api.Controllers
         }
 
         /// <summary>
-        /// Get merchants base on criteria
+        /// Get signatures base on criteria
         /// </summary>
         /// <param name="criteria"></param>
         /// <returns></returns>
@@ -36,7 +36,7 @@ namespace Payment.Api.Controllers
         }
 
         /// <summary>
-        /// Get merchants paging
+        /// Get signatures paging
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
@@ -50,7 +50,7 @@ namespace Payment.Api.Controllers
         }
 
         /// <summary>
-        /// Get one merchant by id
+        /// Get one signature by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
