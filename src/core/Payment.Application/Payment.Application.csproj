@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Payment.Domain\Payment.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Payment\Dtos\" />
+  </ItemGroup>
+
 </Project>
