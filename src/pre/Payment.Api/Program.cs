@@ -3,6 +3,7 @@ using Payment.Api.Services;
 using Payment.Application.Features.Commands;
 using Payment.Application.Interface;
 using Payment.Persistence.Persist;
+using Payment.Service.VnPay.Config;
 using System.Reflection;
 
 namespace Payment.Api
@@ -46,6 +47,9 @@ namespace Payment.Api
             {
                 r.RegisterServicesFromAssembly(typeof(CreateMerchant).Assembly);
             });
+
+            builder.Services.Configure<VnpayConfig>(
+                builder.Configuration.GetSection(VnpayConfig.ConfigName));
 
             var app = builder.Build();
 

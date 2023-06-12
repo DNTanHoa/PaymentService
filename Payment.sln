@@ -7,21 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0B2BE3B-7D9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{86AB8E75-9ABE-4321-915B-9202365F8FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Domain", "src\core\Payment.Domain\Payment.Domain.csproj", "{C2C782C6-307C-4987-983E-9FA6238723B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Domain", "src\core\Payment.Domain\Payment.Domain.csproj", "{C2C782C6-307C-4987-983E-9FA6238723B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Application", "src\core\Payment.Application\Payment.Application.csproj", "{C84336DD-3C77-4AA3-BD55-72F1598E8462}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Application", "src\core\Payment.Application\Payment.Application.csproj", "{C84336DD-3C77-4AA3-BD55-72F1598E8462}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infras", "infras", "{249D1625-4DF0-408F-B2CE-56D0D78A75C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Persistence", "src\infras\Payment.Persistence\Payment.Persistence.csproj", "{1F9E407B-A26E-401F-B707-E0F2714CDBF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Persistence", "src\infras\Payment.Persistence\Payment.Persistence.csproj", "{1F9E407B-A26E-401F-B707-E0F2714CDBF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pre", "pre", "{6B9DE4D7-9167-4B52-B3EC-B179DF9B5234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Api", "src\pre\Payment.Api\Payment.Api.csproj", "{DC4C8A18-85A6-4B8A-ADED-59861F855079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Api", "src\pre\Payment.Api\Payment.Api.csproj", "{DC4C8A18-85A6-4B8A-ADED-59861F855079}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{D83E31BA-3097-4FAF-943B-7FF1C8DC8C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.Ultils", "src\shared\Payment.Ultils\Payment.Ultils.csproj", "{8047EBAE-14B6-4438-9528-11E5E7175203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Ultils", "src\shared\Payment.Ultils\Payment.Ultils.csproj", "{8047EBAE-14B6-4438-9528-11E5E7175203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment.Service", "src\infras\Payment.Service\Payment.Service.csproj", "{75F0B3E2-6799-4F0D-95DE-4F745B843D4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{8047EBAE-14B6-4438-9528-11E5E7175203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8047EBAE-14B6-4438-9528-11E5E7175203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8047EBAE-14B6-4438-9528-11E5E7175203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75F0B3E2-6799-4F0D-95DE-4F745B843D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F0B3E2-6799-4F0D-95DE-4F745B843D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F0B3E2-6799-4F0D-95DE-4F745B843D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F0B3E2-6799-4F0D-95DE-4F745B843D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{DC4C8A18-85A6-4B8A-ADED-59861F855079} = {6B9DE4D7-9167-4B52-B3EC-B179DF9B5234}
 		{D83E31BA-3097-4FAF-943B-7FF1C8DC8C9E} = {B0B2BE3B-7D92-4585-BD37-998B3D90D9AD}
 		{8047EBAE-14B6-4438-9528-11E5E7175203} = {D83E31BA-3097-4FAF-943B-7FF1C8DC8C9E}
+		{75F0B3E2-6799-4F0D-95DE-4F745B843D4B} = {86AB8E75-9ABE-4321-915B-9202365F8FD8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B7CB7E-C378-4FD9-8ACF-E342419A7F72}
