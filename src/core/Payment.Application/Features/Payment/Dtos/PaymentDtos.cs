@@ -18,6 +18,7 @@ namespace Payment.Application.Features.Dtos
         public string? PaymentLanguage { get; set; } = string.Empty;
         public string? MerchantId { get; set; } = string.Empty;
         public string? PaymentDestinationId { get; set; } = string.Empty;
+        public string? PaymentStatus { get; set; } = string.Empty;
         public decimal? PaidAmount { get; set; }
     }
 }
