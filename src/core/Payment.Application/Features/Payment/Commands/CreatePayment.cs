@@ -16,6 +16,8 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Payment.Service.VnPay.Request;
+using Payment.Service.Momo.Config;
+using Payment.Service.Momo.Request;
 
 namespace Payment.Application.Features.Commands
 {
@@ -39,16 +41,19 @@ namespace Payment.Application.Features.Commands
         private readonly IConnectionService connectionService;
         private readonly ISqlService sqlService;
         private readonly VnpayConfig vnpayConfig;
+        private readonly MomoConfig momoConfig;
 
         public CreatePaymentHandler(ICurrentUserService currentUserService,
             IConnectionService connectionService,
             ISqlService sqlService,
+            IOptions<MomoConfig> momoConfigOptions,
             IOptions<VnpayConfig> vnpayConfigOptions)
         {
             this.currentUserService = currentUserService;
             this.connectionService = connectionService;
             this.sqlService = sqlService;
             this.vnpayConfig = vnpayConfigOptions.Value;
+            this.momoConfig = momoConfigOptions.Value;
         }
         public Task<BaseResultWithData<PaymentLinkDtos>> Handle(
             CreatePayment request, CancellationToken cancellationToken)
@@ -90,6 +95,22 @@ namespace Payment.Application.Features.Commands
                                 vnpayConfig.TmnCode, DateTime.Now, currentUserService.IpAddress ?? string.Empty, request.RequiredAmount ?? 0, request.PaymentCurrency ?? string.Empty,
                                 "other", request.PaymentContent ?? string.Empty, vnpayConfig.ReturnUrl, outputIdParam!.Value?.ToString() ?? string.Empty);
                             paymentUrl = vnpayPayRequest.GetLink(vnpayConfig.PaymentUrl, vnpayConfig.HashSecret);
+                            break;
+                        case "MOMO":
+                            var momoOneTimePayRequest = new MomoOneTimePaymentRequest(momoConfig.PartnerCode,
+                                outputIdParam!.Value?.ToString() ?? string.Empty, (long)request.RequiredAmount!, outputIdParam!.Value?.ToString() ?? string.Empty,
+                                request.PaymentContent ?? string.Empty, momoConfig.ReturnUrl, momoConfig.IpnUrl, "captureWallet",
+                                string.Empty);
+                            momoOneTimePayRequest.MakeSignature(momoConfig.AccessKey, momoConfig.SecretKey);
+                            (bool createMomoLinkResult, string? createMessage) = momoOneTimePayRequest.GetLink(momoConfig.PaymentUrl);
+                            if (createMomoLinkResult)
+                            {
+                                paymentUrl = createMessage;
+                            }
+                            else
+                            {
+                                result.Message = createMessage;
+                            }
                             break;
                         default: 
                             break;

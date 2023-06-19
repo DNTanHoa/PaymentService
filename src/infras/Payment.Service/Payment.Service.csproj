@@ -14,4 +14,8 @@
     <ProjectReference Include="..\..\shared\Payment.Ultils\Payment.Ultils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Momo\Lib\" />
+  </ItemGroup>
+
 </Project>

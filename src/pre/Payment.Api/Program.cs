@@ -3,6 +3,7 @@ using Payment.Api.Services;
 using Payment.Application.Features.Commands;
 using Payment.Application.Interface;
 using Payment.Persistence.Persist;
+using Payment.Service.Momo.Config;
 using Payment.Service.VnPay.Config;
 using System.Reflection;
 
@@ -50,6 +51,8 @@ namespace Payment.Api
 
             builder.Services.Configure<VnpayConfig>(
                 builder.Configuration.GetSection(VnpayConfig.ConfigName));
+            builder.Services.Configure<MomoConfig>(
+               builder.Configuration.GetSection(MomoConfig.ConfigName));
 
             var app = builder.Build();
 
