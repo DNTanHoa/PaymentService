@@ -1,10 +1,12 @@
 
+using Hangfire;
 using Payment.Api.Services;
 using Payment.Application.Features.Commands;
 using Payment.Application.Interface;
 using Payment.Persistence.Persist;
 using Payment.Service.Momo.Config;
 using Payment.Service.VnPay.Config;
+using Payment.Service.Zalopay.Config;
 using System.Reflection;
 
 namespace Payment.Api
@@ -53,6 +55,19 @@ namespace Payment.Api
                 builder.Configuration.GetSection(VnpayConfig.ConfigName));
             builder.Services.Configure<MomoConfig>(
                builder.Configuration.GetSection(MomoConfig.ConfigName));
+            builder.Services.Configure<ZaloPayConfig>(
+              builder.Configuration.GetSection(ZaloPayConfig.ConfigName));
+
+            builder.Services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(builder.Configuration.GetConnectionString("Database"),
+                new Hangfire.SqlServer.SqlServerStorageOptions()
+                {
+                    //TODO: Change hangfire sql server option
+                }));
+            builder.Services.AddHangfireServer();
 
             var app = builder.Build();
 
@@ -64,7 +79,7 @@ namespace Payment.Api
             }
 
             app.UseHttpsRedirection();
-
+            app.UseHangfireDashboard();
             app.UseAuthorization();
 
 
