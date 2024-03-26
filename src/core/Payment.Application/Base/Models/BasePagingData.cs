@@ -13,7 +13,7 @@ namespace Payment.Application.Base.Models
         public int PageIndex { get; set; }
         public int TotalPage { get; set; }
         public int TotalItems { get; set; }
-        public string? NextPageUrl { get; set; } = string.Empty;
-        public string? PreviousPageUrl { get; set; } =  string.Empty;
+        // public string? NextPageUrl { get; set; } = string.Empty;
+        // public string? PreviousPageUrl { get; set; } =  string.Empty;
     }
 }
